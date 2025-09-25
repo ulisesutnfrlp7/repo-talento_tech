@@ -9,7 +9,7 @@ const Header = () => {
             <Container>
                 <div className="d-flex align-items-center mb-2">
                     <img
-                        src="./public/favicon.png"
+                        src="/favicon.png"
                         alt="Logo"
                         style={{ width: '40px', height: '40px', marginRight: '12px' }}
                     />
