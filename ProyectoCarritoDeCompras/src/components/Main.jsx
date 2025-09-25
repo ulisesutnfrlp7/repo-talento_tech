@@ -1,5 +1,7 @@
-import React from "react";
-import EcommerceLayout from "./EcommerceLayout";
+// src/components/Main.jsx
+
+import React from 'react';
+import EcommerceLayout from "../pages/EcommerceLayout";
 
 const Main = () => {
     return (

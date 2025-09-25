@@ -1,12 +1,18 @@
-import { React } from 'react';
+// src/App.jsx
+
+import { React, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
 import Header from './components/Header';
 import Navigate from './components/Nav';
 import Footer from './components/Footer';
 import Main from './components/Main';
-import Nosotros from './components/Nosotros';
-import Contacto from './components/Contacto';
-import "bootstrap/dist/css/bootstrap.min.css";
+import Nosotros from './pages/Nosotros';
+import Contacto from './pages/Contacto';
+import ProductDetail from './pages/ProductDetail';
+import RutaProtegida from './components/RutaProtegida';
+import Login from './pages/Login';
 
 // Routes AGRUPA LAS RUTAS Y SE ASEGURA DE QUE UNA SOLA COINCIDA Y SE RENDERICE
 
@@ -15,16 +21,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // LA PROPIEDAD element REPRESENTA EL COMPONENTE QUE SE VA A RENDERIZAR
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <div>
-        <Header/>
-        <Navigate/>
+      <Header/>
+      <Navigate/>
+      <div>
         <Routes>
-          <Route path="/" element={<Main/>} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
+          <Route 
+            path="/" 
+            element={
+              <RutaProtegida isAuthenticated={isAuthenticated}>
+                <Main/>
+              </RutaProtegida>
+            }
+          />
           <Route path="/about" element={<Nosotros/>} />
           <Route path="/contact" element={<Contacto/>} />
+          <Route path="/productos/:id" element={<ProductDetail/>} />
         </Routes>
-        <Footer/>
+      </div>
+      <Footer/>
     </div>
   )
 }

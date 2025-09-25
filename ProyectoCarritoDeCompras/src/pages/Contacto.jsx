@@ -1,4 +1,6 @@
-import React from "react";
+// src/pages/Contacto.jsx
+
+import React from 'react';
 import { Container, Card } from "react-bootstrap";
 
 const Contacto = () => {

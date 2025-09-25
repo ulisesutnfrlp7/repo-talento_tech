@@ -1,8 +1,10 @@
+// src/components/ProductList.jsx
+
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Container, Row, Alert, Spinner } from "react-bootstrap";
 
-const ProductList = ({ onAgregar }) => {
+const ProductList = () => {
     
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true); // ESTADO DE CARGA QUE INDICA SI LOS DATOS ESTÁN EN PROCESO DE SER OBTENIDOS
@@ -47,7 +49,7 @@ const ProductList = ({ onAgregar }) => {
             <h2 className="mb-4">NUESTROS PRODUCTOS</h2>
             <Row>
                 {productos.map(producto => (
-                    <ProductCard key={producto.id} producto={producto} onAgregar={onAgregar} />
+                    <ProductCard key={producto.id} producto={producto} />
                 ))}
             </Row>
         </Container>

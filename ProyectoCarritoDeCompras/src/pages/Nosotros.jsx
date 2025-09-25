@@ -1,11 +1,13 @@
-import React from "react";
+// src/pages/Nosotros.jsx
+
+import React from 'react';
 import { Container } from "react-bootstrap";
 
 const Nosotros = () => {
   return (
     <div className="bg-success">
       <Container className="py-5 text-black" style={{ fontFamily: 'Georgia, serif' }}>
-        <h2 className="mb-4 text-center">🛒 Ahorrate El Mango — EL SUPERMERCADO DONDE TU BILLETERA RESPIRE HONDO Y SONRÍE</h2>
+        <h2 className="mb-4 text-center">🛒 Ahorrate El Mango — EL SUPERMERCADO DONDE TU BILLETERA RESPIRA HONDO Y SONRÍE</h2>
         <p>
           Bienvenido a <strong>Ahorrate El Mango</strong>, el único supermercado donde ahorrar no es una promesa… ¡es un deporte nacional! Acá no venís a gastar: venís a esquivar precios altos como si fueran mosquitos en verano. Porque sabemos que cada mango cuenta, y nosotros te ayudamos a contar hasta el último.
         </p>

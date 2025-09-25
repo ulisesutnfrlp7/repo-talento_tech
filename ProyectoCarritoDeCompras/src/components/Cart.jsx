@@ -1,8 +1,11 @@
 // src/components/Cart.jsx
 
+import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { CarritoContext } from '../context/CarritoContext';
 
-const Cart = ({ carrito, onVaciar }) => {
+const Cart = () => {
+  const { carrito, vaciarCarrito } = useContext(CarritoContext);
   const total = carrito.reduce((acc, item) => acc + Number(item.price), 0);
   // reduce() RECORRE EL ARRAY carrito Y SUMA LOS PRECIOS
   // Number(item.price) ASEGURA QUE EL PRECIO SEA NUMÉRICO (POR SI VIENE COMO STRING)
@@ -26,7 +29,7 @@ const Cart = ({ carrito, onVaciar }) => {
             <Button variant="primary" onClick={() => alert(`COMPRA CONFIRMADA POR UN TOTAL DE: $${total}`)}>
               Confirmar Compra
             </Button>
-            <Button variant="danger" onClick={onVaciar}>
+            <Button variant="danger" onClick={vaciarCarrito}>
               Vaciar Carrito
             </Button>
           </div>
