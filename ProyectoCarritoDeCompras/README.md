@@ -2,7 +2,7 @@
 
 # 🛒 Supermercado "Ahorrate El Mango"
 
-Aplicación **Frontend en React** que simula un eCommerce de supermercado, con funcionalidades de carrito de compras, integración a una API externa, rutas protegidas/dinámicas y un diseño responsivo con **React Bootstrap**.
+Aplicación **Frontend en React** que simula un eCommerce de supermercado, con funcionalidades de carrito de compras, integración a una API externa, rutas protegidas/dinámicas y un diseño responsivo con **React Bootstrap** y **CSS3**.
 
 Proyecto desarrollado para cumplir los **Requerimientos 1 al 4** de la consigna.
 
