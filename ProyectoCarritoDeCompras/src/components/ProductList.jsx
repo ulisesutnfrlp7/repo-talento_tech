@@ -1,21 +1,25 @@
 // src/components/ProductList.jsx
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ProductCard from "./ProductCard";
 import { Container, Row, Alert, Spinner } from "react-bootstrap";
+import { CarritoContext } from "../context/CarritoContext";
 
 const ProductList = () => {
     
     const [productos, setProductos] = useState([]);
+    const [productosIniciales, setProductosIniciales] = useState([]);
     const [cargando, setCargando] = useState(true); // ESTADO DE CARGA QUE INDICA SI LOS DATOS ESTÁN EN PROCESO DE SER OBTENIDOS
     const [error, setError] = useState(null); // EL ESTADO DE ERROR GUARDA INFORMACIÓN SOBRE POSIBLES FALLOS
-    
+    const { registrarRestaurarStock, registrarIncrementarStock } = useContext(CarritoContext);
+
     useEffect (
         () => {
             fetch('https://68d45b6b214be68f8c6916f2.mockapi.io/api/productos/articles')
             .then((res) => res.json())
             .then((datos) => {
                 setProductos(datos);
+                setProductosIniciales(datos);
                 setCargando(false);
             })
             .catch((error) => {
@@ -24,6 +28,37 @@ const ProductList = () => {
             })
         }, []
     );
+
+    const reducirStock = (idProducto) => {
+        setProductos((prev) =>
+            prev.map((prod) =>
+                prod.id === idProducto && prod.stock > 0 
+                ? { ...prod, stock: prod.stock - 1 }
+                : prod
+            )
+        );
+    };
+
+    const incrementarStock = (idProducto) => {
+        setProductos((prev) =>
+            prev.map((prod) =>
+                prod.id === idProducto
+                ? { ...prod, stock: prod.stock + 1 }
+                : prod
+            )
+        );
+    };
+
+    // Restaurar stock
+    const restaurarStock = () => {
+        setProductos(productosIniciales);
+    };
+
+    // Registramos la función restauradora dentro del contexto
+    useEffect(() => {
+        registrarRestaurarStock(restaurarStock);
+        registrarIncrementarStock(incrementarStock);
+    }, [productosIniciales]);
 
     if (cargando) {
         return (
@@ -46,10 +81,10 @@ const ProductList = () => {
 
     return (
         <Container className="py-4">
-            <h2 className="mb-4">NUESTROS PRODUCTOS</h2>
+            <h2 className="mb-4">NUESTROS PRODUCTOS... ¿QUÉ NECESITÁS HOY?</h2>
             <Row>
                 {productos.map(producto => (
-                    <ProductCard key={producto.id} producto={producto} />
+                    <ProductCard key={producto.id} producto={producto} reducirStock={reducirStock} />
                 ))}
             </Row>
         </Container>

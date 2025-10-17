@@ -26,7 +26,7 @@ function App() {
     <div>
       <Header/>
       <Navigate/>
-      <div>
+      <div className="page-container">
         <Routes>
           <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
           <Route 
@@ -39,7 +39,14 @@ function App() {
           />
           <Route path="/about" element={<Nosotros/>} />
           <Route path="/contact" element={<Contacto/>} />
-          <Route path="/productos/:id" element={<ProductDetail/>} />
+          <Route 
+            path="/productos:id" 
+            element={
+              <RutaProtegida isAuthenticated={isAuthenticated}>
+                <ProductDetail/>
+              </RutaProtegida>
+            }
+          />
         </Routes>
       </div>
       <Footer/>
