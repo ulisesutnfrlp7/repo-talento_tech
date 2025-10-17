@@ -40,7 +40,7 @@ function App() {
           <Route path="/about" element={<Nosotros/>} />
           <Route path="/contact" element={<Contacto/>} />
           <Route 
-            path="/productos:id" 
+            path="/productos/:id" 
             element={
               <RutaProtegida isAuthenticated={isAuthenticated}>
                 <ProductDetail/>
