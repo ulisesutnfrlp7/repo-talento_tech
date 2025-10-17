@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://68d45b6b214be68f8c6916f2.mockapi.io/api/productos/articles/${id}`)
+    fetch(`https://68d45b6b214be68f8c6916f2.mockapi.io/api/articles/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('PRODUCTO NO ENCONTRADO :( VERIFICÁ EL ID O VOLVÉ A LA LISTA DE PRODUCTOS');
         return res.json();

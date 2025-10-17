@@ -15,7 +15,7 @@ const ProductList = () => {
 
     useEffect (
         () => {
-            fetch('https://68d45b6b214be68f8c6916f2.mockapi.io/api/productos/articles')
+            fetch('https://68d45b6b214be68f8c6916f2.mockapi.io/api/articles')
             .then((res) => res.json())
             .then((datos) => {
                 setProductos(datos);
