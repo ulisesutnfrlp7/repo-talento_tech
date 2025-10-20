@@ -12,12 +12,13 @@ export function AuthProvider({ children }) {
         const token = `fake-token-${username}`;
         localStorage.setItem('authToken', token);
         setUser(username); 
+        console.log(token);
     }; 
     
     const logout = () => {
         localStorage.removeItem('authToken');
         setUser(null); 
-    }; 
+    };
     
     return ( 
     <AuthContext.Provider value={{ user, login, logout }}> 
