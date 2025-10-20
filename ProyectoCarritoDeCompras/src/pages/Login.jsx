@@ -1,13 +1,15 @@
 // src/pages/Login.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = () => {
   const navigate = useNavigate();
   const [usuario, setUsuario] = useState('');
   const [clave, setClave] = useState('');
+  const { login } = useContext(AuthContext);
   const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
@@ -15,8 +17,8 @@ const Login = ({ setIsAuthenticated }) => {
 
     // Validación básica
     if (usuario === 'admin' && clave === '1234') {
+      login(usuario);
       alert('LOGIN EXITOSO');
-      setIsAuthenticated(true);
       navigate('/');
       setError(null);
     } else {

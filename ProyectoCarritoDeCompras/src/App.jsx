@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import { React, useState } from 'react';
+import { React } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -21,18 +21,17 @@ import Login from './pages/Login';
 // LA PROPIEDAD element REPRESENTA EL COMPONENTE QUE SE VA A RENDERIZAR
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <div>
       <Header/>
       <Navigate/>
       <div className="page-container">
         <Routes>
-          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated}/>} />
+          <Route path="/login" element={<Login/>} />
           <Route 
             path="/" 
             element={
-              <RutaProtegida isAuthenticated={isAuthenticated}>
+              <RutaProtegida>
                 <Main/>
               </RutaProtegida>
             }
@@ -42,7 +41,7 @@ function App() {
           <Route 
             path="/productos/:id" 
             element={
-              <RutaProtegida isAuthenticated={isAuthenticated}>
+              <RutaProtegida>
                 <ProductDetail/>
               </RutaProtegida>
             }
