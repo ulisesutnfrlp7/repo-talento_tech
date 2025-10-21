@@ -49,6 +49,12 @@ const ProductDetail = () => {
         <Card className="p-4 shadow-sm card-hover">
           <h2>{producto.name}</h2>
           <hr className="text-black"/>
+          <Card.Img
+          variant="top"
+          src={producto.image}
+          alt={producto.name}
+          style={{ height: "300px", width: "1300px", objectFit: "cover" }}
+        />
           <p><strong>Precio:</strong> ${producto.price}</p>
           <p><strong>Descripción:</strong> {producto.description}</p>
           <p><strong>ID:</strong> {producto.id}</p>
