@@ -6,7 +6,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Navigate = () => {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" className="mb-0">
             <Container>
                 <Navbar.Brand>
                     Más que un Supermercado...
@@ -21,6 +21,9 @@ const Navigate = () => {
                         </Nav.Link>
                         <Nav.Link as={Link} to="/">
                             Productos
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/admin/productos">
+                            Gestión de Productos
                         </Nav.Link>
                         <Nav.Link as={Link} to="/contact">
                             Contacto

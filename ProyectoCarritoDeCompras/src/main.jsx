@@ -6,13 +6,16 @@ import { BrowserRouter } from 'react-router-dom' // HABILITA EL ENRUTAMIENTO EN 
 import App from './App.jsx'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CarritoProvider } from './context/CarritoContext.jsx'
+import { ProductosProvider } from './context/ProductosContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <CarritoProvider>
-          <App />
+            <ProductosProvider>
+              <App />
+            </ProductosProvider>
         </CarritoProvider>
       </AuthProvider>
     </BrowserRouter>

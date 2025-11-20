@@ -1,11 +1,12 @@
+/* src/App.css */
 .card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid #3ddd50;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #3ddd50;
 }
 
 html, body {
@@ -53,4 +54,16 @@ header, nav {
 body {
   overflow-x: hidden;
   background-color: #198754;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.form-control.is-valid {
+  border-color: #198754;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9f7ef 100%);
 }

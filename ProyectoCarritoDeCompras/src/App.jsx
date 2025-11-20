@@ -13,6 +13,7 @@ import Contacto from './pages/Contacto';
 import ProductDetail from './pages/ProductDetail';
 import RutaProtegida from './components/RutaProtegida';
 import Login from './pages/Login';
+import ProductManager from './components/ProductManager';
 
 // Routes AGRUPA LAS RUTAS Y SE ASEGURA DE QUE UNA SOLA COINCIDA Y SE RENDERICE
 
@@ -43,6 +44,14 @@ function App() {
             element={
               <RutaProtegida>
                 <ProductDetail/>
+              </RutaProtegida>
+            }
+          />
+          <Route 
+            path="/admin/productos" 
+            element={
+              <RutaProtegida>
+                <ProductManager/>
               </RutaProtegida>
             }
           />

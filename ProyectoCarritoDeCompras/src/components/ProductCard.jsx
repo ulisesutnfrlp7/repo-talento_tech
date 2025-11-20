@@ -43,7 +43,6 @@ const ProductCard = ({ producto, reducirStock }) => {
           <Card.Title>{name}</Card.Title>
           <Card.Text>ID: {id}</Card.Text>
           <h5 className="text-success">${price}</h5>
-
           <Button
             variant={stock === 0 ? "secondary" : "primary"}
             onClick={handleAgregar}
