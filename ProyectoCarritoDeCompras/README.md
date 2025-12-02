@@ -1,10 +1,10 @@
-# Proyecto Final (Pre-entrega) Curso REACT-JS Ulises Mateo Bucchino - Comisión 25235
+# Proyecto Final (Entrega) Curso REACT-JS Ulises Mateo Bucchino - Comisión 25235
 
 # 🛒 Supermercado "Ahorrate El Mango"
 
-Aplicación **Frontend en React** que simula un eCommerce de supermercado, con funcionalidades de carrito de compras, integración a una API externa, rutas protegidas/dinámicas y un diseño responsivo con **React Bootstrap** y **CSS3**.
+Aplicación **Frontend en React** que simula un eCommerce de supermercado, con funcionalidades de carrito de compras, integración a una API externa, rutas protegidas/dinámicas, CRUD completo y un diseño responsivo con **React Bootstrap** y **CSS3**.
 
-Proyecto desarrollado para cumplir los **Requerimientos 1 al 4** de la consigna.
+Proyecto desarrollado para cumplir los **Requerimientos 1 al 5** de la consigna.
 
 ---
 
@@ -36,6 +36,17 @@ Proyecto desarrollado para cumplir los **Requerimientos 1 al 4** de la consigna.
 - Rutas protegidas: acceso al Home (`/`) solo con login correcto.
 - Implementación de login simple (usuario: `admin`, clave: `1234`).
 - Navbar interactiva para moverse entre secciones.
+
+### ✅ Requerimiento 5: CRUD Completo de Productos
+- Alta, baja, modificación y visualización de productos.
+- Formularios creados con React y validados.
+- Implementación de métodos HTTP: GET, POST, PUT, DELETE.
+- Actualización automática de la lista de productos.
+- Integración total con MockAPI.
+
+### ADICIONALES
+- SECCIÓN DE CONTACTO: formulario completamente funcional. Manejo de datos con estados controlados. Validación básica de campos requeridos. Envío simulado con mensaje de confirmación. UI construida con React Bootstrap.
+- IMPLEMENTACIÓN DE REACT ICONS: iconografía aplicada.
 
 ---
 
