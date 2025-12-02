@@ -53,7 +53,13 @@ const ProductDetail = () => {
           variant="top"
           src={producto.image}
           alt={producto.name}
-          style={{ height: "300px", width: "1300px", objectFit: "cover" }}
+          style={{
+              width: "100%",
+              height: "auto",
+              maxHeight: "500px",
+              objectFit: "contain",
+              backgroundColor: "#f8f9fa"
+          }}
         />
           <p><strong>Precio:</strong> ${producto.price}</p>
           <p><strong>Descripción:</strong> {producto.description}</p>

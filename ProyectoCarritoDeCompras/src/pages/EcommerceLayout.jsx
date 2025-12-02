@@ -26,7 +26,7 @@ const EcommerceLayout = () => {
           <Cart/>
         </Col>
         <Col md={6}>
-          <h5 className="text-black">¿QUERÉS CONSULTAR UN PRODUCTO POR ID?</h5>
+          <h5 className="text-black">ESTO YA ES PARA PROS... ¿TE ACORDÁS Y QUERÉS CONSULTAR UN PRODUCTO POR ID?</h5>
           <hr className="text-light"/>
           <Form className="d-flex gap-2">
             <Form.Control

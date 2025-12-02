@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useContext } from "react";
 import ProductCard from "./ProductCard";
-import { Container, Row, Alert, Spinner } from "react-bootstrap";
+import { Container, Row, Alert, Spinner, InputGroup, Form, Col } from "react-bootstrap";
 import { CarritoContext } from "../context/CarritoContext";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ProductList = () => {
     
@@ -11,6 +12,7 @@ const ProductList = () => {
     const [productosIniciales, setProductosIniciales] = useState([]);
     const [cargando, setCargando] = useState(true); // ESTADO DE CARGA QUE INDICA SI LOS DATOS ESTÁN EN PROCESO DE SER OBTENIDOS
     const [error, setError] = useState(null); // EL ESTADO DE ERROR GUARDA INFORMACIÓN SOBRE POSIBLES FALLOS
+    const [busqueda, setBusqueda] = useState("");
     const { registrarRestaurarStock, registrarIncrementarStock } = useContext(CarritoContext);
 
     useEffect (
@@ -28,6 +30,20 @@ const ProductList = () => {
             })
         }, []
     );
+
+    useEffect (
+        () => {
+            if (busqueda.trim() === "") {
+                setProductos(productosIniciales);
+            } else {
+                const filtrados = productosIniciales.filter(
+                    (producto) => producto.name.toLowerCase().includes(busqueda.toLocaleLowerCase())
+                );
+                setProductos(filtrados);
+            }
+        }, [busqueda, productosIniciales]
+    );
+
 
     const reducirStock = (idProducto) => {
         setProductos((prev) =>
@@ -52,6 +68,7 @@ const ProductList = () => {
     // Restaurar stock
     const restaurarStock = () => {
         setProductos(productosIniciales);
+        setBusqueda("");
     };
 
     // Registramos la función restauradora dentro del contexto
@@ -80,13 +97,40 @@ const ProductList = () => {
     }
 
     return (
-        <Container className="py-4">
-            <h2 className="mb-4">NUESTROS PRODUCTOS... ¿QUÉ NECESITÁS HOY?</h2>
-            <Row>
-                {productos.map(producto => (
-                    <ProductCard key={producto.id} producto={producto} reducirStock={reducirStock} />
-                ))}
+        <Container className="py-0">
+            <h2 className="mb-4 mt-3 text-black">NUESTROS PRODUCTOS... ¿QUÉ NECESITÁS HOY?</h2>
+            <Row className="mb-4">
+                <Col md={12} lg={12} xl={4}>
+                    <InputGroup className="rounded shadow-sm">
+                        <InputGroup.Text id="search-icon" className="bg-white border-end-0">
+                        <i className="bi bi-search text-muted"></i>
+                        </InputGroup.Text>
+                        <Form.Control
+                        type="text"
+                        placeholder="Agilizá, buscá por nombre ;)"
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                        aria-label="Buscar producto"
+                        className="border-start-0 rounded-end"
+                        />
+                    </InputGroup>
+                </Col>
             </Row>
+            {productos.length === 0 ? (
+                <Alert variant="info" className="text-center">
+                    Disculpanos ché, no se encontraron productos que coincidan con tu búsqueda :(
+                </Alert>
+            ) : (
+                <Row>
+                {productos.map((producto) => (
+                    <ProductCard
+                    key={producto.id}
+                    producto={producto}
+                    reducirStock={reducirStock}
+                    />
+                ))}
+                </Row>
+            )}
         </Container>
     );
 }
